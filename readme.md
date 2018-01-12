@@ -33,7 +33,7 @@ This will allow automatic tests of your application to occur.
 
 Use the Dockerfile, customize it as desired and build it!
 
-    Docker build -t yourname/nameofimage .
+    docker build -t yourname/nameofimage .
     docker push yourname/nameofimage
 
 Anyone can run it afterwards:

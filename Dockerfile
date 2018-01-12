@@ -7,7 +7,7 @@ RUN apt-get update -yqq \
             libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev \
             unixodbc-dev libsqlite3-dev libaspell-dev \
             libsnmp-dev libpcre3-dev libtidy-dev -yqq \
-    && docker-php-ext-install mbstring mcrypt pdo_pgsql \
+    && docker-php-ext-install mbstring mcrypt pdo pdo_pgsql pdo_mysql mysqli \
     curl json intl gd xml zip bz2 opcache \
     && pecl install xdebug-2.5.0 \
     && docker-php-ext-enable xdebug
