@@ -1,5 +1,8 @@
 FROM php:7.1.14
 
+# Add a user "automation"
+RUN useradd automation --shell /bin/bash --create-home
+
 # PHP configuration & debugging
 RUN apt-get update -yqq \
     && apt-get install git \
