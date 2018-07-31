@@ -1,4 +1,4 @@
-FROM php:7.1.14
+FROM php:7.1.20
 
 # Add a user "automation"
 RUN useradd automation --shell /bin/bash --create-home
