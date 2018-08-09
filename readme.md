@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This is a custom build based on PHP 7.1's docker image, with changes to make Laravel testing easily possible.
+This is a custom build based on PHP 7.1's docker image, with changes to make Laravel back-end testing easily possible.
 
 ## Where can I find it?
 
@@ -29,13 +29,24 @@ tests:
 
 This will allow automatic tests of your application to occur.
 
+A few notes:
+
+- Front-end testing w/ Laravel Dusk is not supported in this version.
+- This container ships with `npm` and `yarn`.
+
 ## How can I build this myself?
 
 Use the Dockerfile, customize it as desired and build it!
 
-    docker build -t yourname/nameofimage .
-    docker push yourname/nameofimage
+Of course, you must replace `nicoverbruggen/php71` with something else if you want to publish your customized version yourself.
+
+    docker build -t nicoverbruggen/php71 .
+    docker push nicoverbruggen/php71
 
 Anyone can run it afterwards:
 
-    docker run yourname/nameofimage
+    docker run nicoverbruggen/php71
+
+You can also attach to the container w/ bash:
+
+    docker run -i -t nicoverbruggen/php71 /bin/bash
