@@ -18,13 +18,24 @@ image: nicoverbruggen/php71:latest
 cache:
   paths:
   - vendor/
+  - node_modules/
 
 tests:
   script:
+  ## Copy ENV variable for CI
+  - cp .env.ci .env
+  ## Update Composer
   - curl -sS https://getcomposer.org/installer | php
+  ## Run Composer
   - php composer.phar install
-  - cp .env.testing .env
-  - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
+  ## Run Yarn (may take a while)
+  - yarn install
+  - yarn run dev
+  ## Run PHPUnit
+  - vendor/bin/phpunit -v --configuration phpunit.ci.xml --coverage-text --colors=never
+  after_script:
+  ## Output any logging
+  - cat storage/logs/laravel.log 2>/dev/null
 ```
 
 This will allow automatic tests of your application to occur.
